@@ -37,7 +37,6 @@ class BlurActivity : AppCompatActivity() {
 
         binding.goButton.setOnClickListener { viewModel.applyBlur(blurLevel) }
 
-
         // Setup view output image file button
         binding.seeFileButton.setOnClickListener {
             viewModel.outputUri?.let { currentUri ->
