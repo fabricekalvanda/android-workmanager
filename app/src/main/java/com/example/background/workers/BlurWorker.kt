@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2018 The Android Open Source Project
  *
@@ -25,6 +26,7 @@ import androidx.work.Worker
 import androidx.work.WorkerParameters
 import androidx.work.workDataOf
 import com.example.background.KEY_IMAGE_URI
+import com.example.background.R
 
 private const val TAG = "BlurWorker"
 class BlurWorker(ctx: Context, params: WorkerParameters) : Worker(ctx, params) {
@@ -47,8 +49,12 @@ class BlurWorker(ctx: Context, params: WorkerParameters) : Worker(ctx, params) {
 
             val resolver = appContext.contentResolver
 
+            /*val picture = BitmapFactory.decodeResource(
+                appContext.resources,
+                R.drawable.android_cupcake)*/
+
             val picture = BitmapFactory.decodeStream(
-                    resolver.openInputStream(Uri.parse(resourceUri)))
+                resolver.openInputStream(Uri.parse(resourceUri)))
 
             val output = blurBitmap(picture, appContext)
 
